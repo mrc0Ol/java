@@ -1,0 +1,51 @@
+Problem Statement 3 : Write a program to demonstrate dependency injection via Constructor.
+Solution:
+Singer.java
+package spring1;
+publicclass Singer {
+String name;
+int age;
+public String getName() {
+return name;
+}
+publicvoid setName(String name) {
+this.name = name;
+}
+publicint getAge() {
+return age;
+}
+publicvoid setAge(int age) {
+this.age = age;
+}
+void displayInfo()
+{
+System.out.println(&quot;Name:&quot; +name+&quot; Age:&quot; +age);
+}
+}
+appctx.xml
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+&lt;bean id=&quot;Singer&quot; class=&quot;spring1.Singer&quot;&gt;
+&lt;property name=&quot;name&quot; value=&quot;vinit&quot;&gt;&lt;/property&gt;
+&lt;property name=&quot;age&quot; value=&quot;21&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;
+
+Trishna Tamanna Biswal(B-6)
+SingerTest.java
+package spring1;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+public class SingerTest {
+private static ApplicationContext ctx;
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+ctx=new ClassPathXmlApplicationContext(&quot;appctx.xml&quot;);
+Singer singer=(Singer)ctx.getBean(&quot;Singer&quot;);
+singer.displayInfo();
+
+}
+}
