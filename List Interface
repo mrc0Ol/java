@@ -1,0 +1,48 @@
+1. Write a Java program to create List containing list of items of type String and use for- --each loop to
+print the items of the list.
+
+package listeg;
+import java.util.*;
+public class Array1 {
+public static void main(String[] args) {
+ArrayList&lt;String&gt;list=new ArrayList&lt;String&gt;();
+list.add(&quot;MATHS&quot;);
+list.add(&quot;ADBMS&quot;);
+list.add(&quot;JAVA&quot;);
+list.add(&quot;PYTHON&quot;);
+System.out.println(list);
+System.out.println(&quot;Traversing list through for each loop&quot;);
+for(String subject:list)
+System.out.println(subject);
+}
+}
+
+
+2. Write a Java program to create List containing list of items and use ListIterator interface to print
+items present in the list. Also print the list in reverse/ backward direction.
+
+package listeg;
+import java.util.*;
+public class Reverse {
+public static void main(String[] args) {
+List&lt;String&gt; mylist = new ArrayList&lt;String&gt;();
+mylist.add(&quot;Vinit&quot;);
+mylist.add(&quot;Rahul&quot;);
+mylist.add(&quot;Owesh&quot;);
+mylist.add(&quot;Vinayak&quot;);
+mylist.add(&quot;Akash&quot;);
+System.out.println(&quot;Traversing through iterator&quot;);
+System.out.println(&quot;Original List:&quot;);
+Iterator itr=mylist.iterator();
+while(itr.hasNext()) {
+System.out.println(itr.next());
+}
+Collections.reverse(mylist);
+System.out.println(); //space between two lines
+System.out.println(&quot;Reversed List:&quot;);
+Iterator itr1=mylist.iterator();
+while(itr1.hasNext()) {
+System.out.println(itr1.next());
+}
+}
+}
