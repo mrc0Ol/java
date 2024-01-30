@@ -1,0 +1,69 @@
+1. Write a Java Program to demonstrate a Generic Class.
+class geg&lt;T&gt;
+{
+T obj;
+geg(T obj){this.obj = obj;}
+public T get() {returnthis.obj;}
+}
+class G1
+{
+publicstaticvoid main (String[] args)
+{
+geg&lt;Integer&gt;i=new geg&lt;Integer&gt;(35);
+System.out.println(i.get());
+geg&lt;String&gt; s =
+new geg&lt;String&gt;(&quot;Vinit&quot;);
+System.out.println(s.get());
+}
+}
+
+2. Write a Java Program to demonstrate Generic Methods.
+publicclass Genericmethod
+{
+void display()
+{
+System.out.println(&quot;generic method exmaple&quot;);
+}
+&lt;T&gt;void gdisplay (T e)
+{
+System.out.println(e.getClass().getName() + &quot; = &quot; + e);
+}
+publicstaticvoid main(String[] args)
+{
+Genericmethod g1=new Genericmethod();
+g1.display();
+g1.gdisplay(1);
+g1.gdisplay(&quot;vinit&quot;);
+g1.gdisplay(11.0);
+}
+}
+
+3. Write a Java Program to demonstrate Wildcards in Java Generics.
+import java.util.*;
+public class Wildcardex {
+// Upper bounded
+private static double sum(List&lt;? extends Number&gt; list) {
+double sum = 0.0;
+for (Number i : list) {
+sum = sum + i.doubleValue();
+}
+return sum;
+}
+// Lower Bounded
+private static void show(List&lt;? super Integer&gt; list) {
+list.forEach((x) -&gt; {
+System.out.print(x + &quot; &quot;);
+});
+}
+public static void main(String[] args) {
+System.out.println(&quot;Upper Bounded : &quot;);
+List&lt;Integer&gt; list1 = Arrays.asList(4, 2, 7, 5, 1, 9);
+System.out.println(&quot;List 1 Sum : &quot; + sum(list1));
+List&lt;Double&gt; list2 = Arrays.asList(4.7, 2.4, 7.3, 5.4, 1.5, 9.2);
+System.out.println(&quot;List 2 Sum : &quot; + sum(list2));
+System.out.println(&quot;\nLower Bounded : &quot;);
+List&lt;Integer&gt; list3 = Arrays.asList(4, 2, 7, 5, 1, 9);
+System.out.println(&quot;Only Classes With Integer Superclass will be Accepted : &quot;);
+show(list3);
+}
+}
