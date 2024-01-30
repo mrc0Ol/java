@@ -1,0 +1,56 @@
+1. Write a Java program using Map interface containing list of items having keys and associated values
+and perform the following operations:
+a. Add items in the map.
+b. Remove items from the map
+c. Search specific key from the map
+d. Get value of the specified key
+e. Insert map elements of one map in to other map.
+f. Print all keys and values of the map.
+
+import java.util.*;
+publicclass mapinterface {
+publicstaticvoid main(String[] args) {
+// TODO Auto-generated method stub
+Map&lt;Integer, String&gt; map = new HashMap&lt;&gt;();
+map.put(1 ,&quot;Vinit&quot;);
+map.put(2,&quot;Owesh&quot;);
+map.put(3,&quot;Sudarshan&quot;);
+map.put(4,&quot;Sushant&quot;);
+map.put(5,&quot;Ashish&quot;);
+System.out.println();
+Map&lt;Integer, String&gt; map1 = new HashMap&lt;&gt;();
+map1.put(6 ,&quot;Shruti&quot;);
+map1.put(7,&quot;Prachi&quot;);
+map1.put(8,&quot;Shradhha&quot;);
+System.out.println(&quot;Map 1&quot;);
+for (Map.Entry&lt;Integer, String&gt; e : map.entrySet())
+System.out.println(e.getKey() + &quot; &quot; + e.getValue());
+System.out.println();
+System.out.println(&quot;Map 2&quot;);
+for (Map.Entry&lt;Integer, String&gt; e : map1.entrySet())
+System.out.println(e.getKey() + &quot; &quot; + e.getValue());
+System.out.println(&quot;Insert map into another map&quot;);
+Map&lt;Integer, String&gt; map2 = new HashMap&lt;&gt;();
+map2.putAll(map);
+map2.putAll(map1);
+System.out.println(map2);
+System.out.println();
+System.out.println(&quot;Remove items from the map&quot;);
+map.remove((3));
+for (Map.Entry&lt;Integer, String&gt; e : map.entrySet())
+System.out.println(e.getKey() + &quot; &quot;+ e.getValue());
+System.out.println();
+
+System.out.println();
+System.out.println(&quot;Search specific key from the map&quot;);
+System.out.println(&quot;Is the key &#39;2&#39; present? &quot; +
+map.containsKey(2));
+System.out.println(&quot;Is the key &#39;6&#39; present? &quot; +
+map.containsKey(6));
+System.out.println();
+System.out.println(&quot;Get value of the specified key&quot;);
+String val = (String)map.get(2);
+System.out.println(val);
+System.out.println();
+}
+}
