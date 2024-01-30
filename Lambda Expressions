@@ -1,0 +1,103 @@
+1. Write a Java program using Lambda Expression to print “Hello World!”.
+package Lambdaexpression;
+interface HelloWorld1 {
+String sayHello(String name);
+}
+publicclass helloworld {
+publicstaticvoid main(String args[]){
+HelloWorld1 helloWorld = (String name) -&gt; { return &quot;Hello &quot; + name; };
+System.out.println(helloWorld.sayHello(&quot;World&quot;));
+}
+}
+
+2. Write a Java program using Lambda Expression with single parameter.
+package Lambdaexpression;
+interface Say{
+public String say(String name);
+}
+publicclass singleparameter{
+publicstaticvoid main(String[] args) {
+Say s1=(name)-&gt;{
+return &quot;Hello &quot;+name;
+};
+System.out.println(s1.say(&quot;vinit&quot;));
+}
+}
+
+3. Write a Java program using Lambda Expression with multiple parameters to add two numbers.
+package Lambdaexpression;
+interface Add{
+int add(int a,int b);
+}
+Public class multiplepara{
+Public static void main(String[] args) {
+Add ad1=(a,b)-&gt;(a+b);
+System.out.println(&quot;Sum: &quot; +ad1.add(50,20));
+Add ad2=(int a,int b)-&gt;(a+b);
+System.out.println(&quot;Sum: &quot; +ad2.add(700,230));
+}
+}
+
+4. Write a Java program using Lambda Expression to calculate the following:
+a. Convert Fahrenheit to Celcius
+package Lambdaexpression;
+interface temp
+{
+Public double convert(double temp);
+}
+Public class farherntoce1 {
+Public staticvoid main(String[] args) {
+temp t1=(double a)-&gt;{
+return((a-32)* 5/9);
+};
+System.out.print(&quot;Convert fahrenheit to celsius: &quot;+ t1.convert(86));
+}
+}
+
+b. Convert Kilometers to Miles.
+package Lambdaexpression;
+interface temp1
+{
+publicdouble convert(double temp);
+}
+publicclass kmtomiles {
+publicstaticvoid main(String[] args) {
+temp t1=(double a)-&gt;{
+return(a/1.6);
+};
+System.out.print(&quot;Convert KM to MILES: &quot;+ t1.convert(10)+ &quot; Miles&quot;);
+}
+}
+
+5. Write a Java program using Lambda Expression with or without return keyword.
+package Lambdaexpression;
+interface Add2{
+int add(int a,int b);
+}
+Public class withwithoutkeywords {
+Public static void main(String[] args) {
+// without return keyword
+Add2 ad1=(a,b)-&gt;(a+b);
+System.out.println(&quot;Sum: &quot; +ad1.add(43,23));
+// with return keyword
+Add2 ad2=(int a,int b)-&gt;
+{
+return (a+b);
+};
+System.out.println(&quot;Sum: &quot; +ad2.add(54,320));
+}
+}
+
+6. Write a Java program using Lambda Expression to concatenate two strings.
+package Lambdaexpression;
+interface conc1 {
+public String concat(String a,String b);
+}
+Public class concatenate {
+public static void main(String[] args) {
+conc1 s1 = (String a,String b)-&gt;{
+return (a+b);
+};
+System.out.println(s1.concat(&quot;Hello&quot;,&quot; Vinit&quot;));
+}
+}
