@@ -1,0 +1,62 @@
+1. Write a Java program to create a Set containing list of items of type String and print the items in the
+list using Iterator interface. Also print the list in reverse/ backword direction.
+
+import java.util.*;
+publicclass Reverse {
+publicstaticvoid main(String[] args) {
+// Let us create a list of strings
+List&lt;String&gt; mylist = new ArrayList&lt;String&gt;();
+mylist.add(&quot;vinit&quot;);
+mylist.add(&quot;owesh&quot;);
+mylist.add(&quot;sudarshan&quot;);
+mylist.add(&quot;sushant&quot;);
+System.out.println(&quot;Original list &quot;);
+Iterator&lt;String&gt; itr=mylist.iterator();//getting the Iterator
+while(itr.hasNext()){//check if iterator has the elements
+System.out.println(itr.next());
+}
+Collections.reverse(mylist);
+System.out.println(&quot; &quot;);
+System.out.println(&quot;reversed list &quot;);
+Iterator&lt;String&gt; itr1=mylist.iterator();//getting the Iterator
+while(itr1.hasNext()){//check if iterator has the elements
+System.out.println(itr1.next());
+}
+}
+}
+
+2. Write a Java program using Set interface containing list of items and perform the following operations:
+a. Add items in the set.
+b. Insert items of one set in to other set.
+c. Remove items from the set
+d. Search the specified item in the set.
+
+import java.util.*;
+publicclass set1{
+publicstaticvoid main(String[] args) {
+// TODO Auto-generated method stub
+Set&lt;Integer&gt; s = new LinkedHashSet&lt;Integer&gt;();
+s.add(69);
+s.add(57);
+s.add(10);
+s.add(18);
+s.add(90);
+s.add(151);
+Set&lt;Integer&gt; s1 = new LinkedHashSet&lt;Integer&gt;();
+s1.add(70);
+s1.add(35);
+s.addAll(s1);
+System.out.println(&quot;Set1: &quot; + s);
+System.out.println(&quot;Set2: &quot; + s1);
+System.out.println();
+System.out.println(&quot;After Adding set2 into set1: &quot; + s);
+s.remove(10);
+s.remove(18);
+System.out.println(&quot;Set after removing elements: &quot; + s);
+System.out.println();
+System.out.println(&quot;Does the Set contains: 57? &quot;
++ s.contains(57));
+System.out.println(&quot;Does the Set contains: 18? &quot;
++ s.contains(18));
+}
+}
