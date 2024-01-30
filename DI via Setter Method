@@ -1,0 +1,63 @@
+Write a program to demonstrate dependency injection via setter method.
+
+Account.java
+package spring1;
+publicclass Account {
+int id;
+String name;
+int balance;
+public Account(int id, String name, int balance) {
+super();
+this.id = id;
+this.name = name;
+this.balance = balance;
+}
+publicint getId() {
+return id;
+}
+publicvoid setId(int id) {
+this.id = id;
+}
+public String getName() {
+return name;
+}
+publicvoid setName(String name) {
+this.name = name;
+}
+publicint getBalance() {
+return balance;
+}
+publicvoid setBalance(int balance) {
+this.balance = balance;
+}
+@Override
+public String toString() {
+return “Account [id=“ + id + “, name=“ + name + “, balance=“ + balance + “]”;
+}
+}
+
+Trishna Tamanna Biswal(B-6)
+appctx2.xml
+<?xml version=“1.0” encoding=“UTF-8”?>
+<beans xmlns=“http://www.springframework.org/schema/beans”
+xmlns:xsi=“http://www.w3.org/2001/XMLSchema-instance”
+xsi:schemaLocation=“http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd”>
+<bean id=“Account” class=“spring1.Account”>
+<constructor-arg name=“id” value=“1”></constructor-arg>
+<constructor-arg name=“name” value=“vinit”></constructor-arg>
+<constructor-arg name=“balance” value=“69000”></constructor-arg>
+</bean>
+</beans>
+
+AccountTest.java
+package spring1;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+public class Accounttest {
+public static void main(String[] args) {
+ApplicationContext con = new ClassPathXmlApplicationContext(“appctx2.xml”);
+Account acc = (Account) con.getBean(“Account”);
+System.out.println(acc.toString());
+}
+}
