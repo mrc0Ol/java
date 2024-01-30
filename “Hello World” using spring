@@ -1,0 +1,40 @@
+Write a program to print “Hello World” using spring framework.
+-->
+HelloWorld.java
+package spring1;
+publicclass HelloWorld {
+String name;
+public String getName() {
+return name;
+}
+publicvoid setName(String name) {
+this.name = name;
+}
+@Override
+public String toString() {
+return “Hello World, I’m “ + name + “.”;
+}
+}
+
+appctx3.xml
+<?xml version=“1.0” encoding=“UTF-8”?>
+<beans xmlns=“http://www.springframework.org/schema/beans”
+xmlns:xsi=“http://www.w3.org/2001/XMLSchema-instance”
+xsi:schemaLocation=“http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd”>
+<bean id=“hw” class=“spring1.HelloWorld”>
+<property name=“name”value=“Vinit”/>
+</bean>
+</beans>
+
+TestHelloWorld.java
+package spring1;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+publicclass TestHelloWorld {
+publicstaticvoid main(String[] args) {
+ClassPathXmlApplicationContext app = new
+ClassPathXmlApplicationContext(“appctx3.xml”);
+HelloWorld hw = (HelloWorld) app.getBean(“hw”);
+System.out.println(hw.toString());
+}
+}
